@@ -1,0 +1,600 @@
+/* ====================================
+   MY POSTS PAGE - STYLING
+   ==================================== */
+
+/* Main Container Animation */
+:host {
+  display: block;
+  animation: pageFadeIn 0.6s ease;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SEARCH FORM - Matching Feed Food Page Design */
+.form-container {
+  background: linear-gradient(135deg, #ffffff, #fef7ed);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, 0.1);
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #f59e0b, #8b5cf6);
+}
+
+/* Search Form Layout */
+.d-flex[role="search"] {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Category Select Dropdown */
+.form-select {
+  flex: 1;
+  min-width: 180px;
+  padding: 14px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 15px;
+  background: white;
+  color: #475569;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23475569' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-select:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom options styling */
+.form-select option {
+  padding: 12px;
+  font-size: 0.95rem;
+  background: white;
+}
+
+.form-select option[value=""] {
+  color: #64748b;
+  font-style: italic;
+}
+
+.form-select option[value="FEED"] {
+  color: #8b5cf6;
+  font-weight: 600;
+}
+
+.form-select option[value="SELL"] {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.form-select option[value="EDIBLE"] {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Search Button */
+.btn-outline-success {
+  padding: 14px 24px;
+  border: 2px solid #10b981;
+  background: white;
+  color: #10b981;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-success::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-outline-success:hover::before {
+  left: 100%;
+}
+
+.btn-outline-success:hover {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+.btn-outline-success:active {
+  transform: translateY(-1px);
+}
+
+.btn-outline-success i {
+  font-size: 1.1rem;
+}
+
+/* Page Header */
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: transparent;
+  background: linear-gradient(135deg, #1e293b, #475569);
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin: 2rem 0 1.5rem 0;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #f59e0b);
+  border-radius: 2px;
+}
+
+/* Divider */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #e2e8f0 20%, 
+    #e2e8f0 80%, 
+    transparent 100%
+  );
+  margin: 2rem 0;
+}
+
+/* New Post Button */
+.d-flex.justify-content-end.mb-3 {
+  margin-bottom: 2rem !important;
+}
+
+.btn-outline-primary {
+  padding: 14px 28px;
+  border: 2px solid #3b82f6;
+  background: white;
+  color: #3b82f6;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-outline-primary:hover::before {
+  left: 100%;
+}
+
+.btn-outline-primary:hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+.btn-outline-primary:active {
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary i {
+  font-size: 1.1rem;
+}
+
+/* Posts Grid */
+.d-flex.flex-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 2rem 0;
+}
+
+/* Card Animation */
+app-book-card {
+  animation: cardSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+app-book-card:nth-child(1) { animation-delay: 0.1s; }
+app-book-card:nth-child(2) { animation-delay: 0.2s; }
+app-book-card:nth-child(3) { animation-delay: 0.3s; }
+app-book-card:nth-child(4) { animation-delay: 0.4s; }
+app-book-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes cardSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* No Posts Message */
+.text-center {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #64748b;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 20px;
+  margin: 3rem 0;
+  position: relative;
+  animation: emptyStateAppear 0.6s ease;
+}
+
+.text-center::before {
+  content: '📝';
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+  animation: emptyIconFloat 3s ease-in-out infinite;
+}
+
+.text-center::after {
+  content: 'Start sharing your delicious food posts!';
+  display: block;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+}
+
+@keyframes emptyStateAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes emptyIconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 3rem 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.page-item {
+  margin: 0 2px;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-link:hover:not(.disabled):not(.active) {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  color: #1e293b;
+  transform: translateY(-3px);
+  border-color: #10b981;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.15);
+}
+
+.page-link.active {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white !important;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+  animation: activePage 1.5s ease-in-out infinite;
+}
+
+@keyframes activePage {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  }
+}
+
+.page-link.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f1f5f9;
+  color: #94a3b8;
+}
+
+.page-link.disabled:hover {
+  transform: none;
+  box-shadow: none;
+  background: #f1f5f9;
+}
+
+/* Pagination Icons */
+.page-link i {
+  font-size: 1.1rem;
+}
+
+/* First/Last Page Buttons */
+.page-link:first-child,
+.page-link:last-child {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-color: #e2e8f0;
+}
+
+.page-link:first-child:hover:not(.disabled),
+.page-link:last-child:hover:not(.disabled) {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+  border-color: transparent;
+}
+
+/* Loading Animation */
+.loading-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 2rem 0;
+}
+
+.loading-card {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite linear;
+  border-radius: 20px;
+  height: 400px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+  
+  .d-flex[role="search"] {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-select {
+    width: 100%;
+  }
+  
+  .btn-outline-success {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  h3 {
+    font-size: 2rem;
+  }
+  
+  .d-flex.flex-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .btn-outline-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .pagination {
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+  
+  .page-link {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  .d-flex.flex-wrap {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .pagination {
+    gap: 5px;
+  }
+  
+  .page-link {
+    width: 35px;
+    height: 35px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .form-container {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-color: rgba(245, 158, 11, 0.2);
+  }
+  
+  .form-select {
+    background: #334155;
+    border-color: #475569;
+    color: #e2e8f0;
+  }
+  
+  .btn-outline-success {
+    background: #334155;
+    color: #34d399;
+    border-color: #34d399;
+  }
+  
+  .btn-outline-primary {
+    background: #334155;
+    color: #60a5fa;
+    border-color: #60a5fa;
+  }
+  
+  .text-center {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #cbd5e1;
+  }
+  
+  .pagination {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+  }
+  
+  .page-link {
+    background: #334155;
+    color: #cbd5e1;
+  }
+  
+  .page-link:hover:not(.disabled):not(.active) {
+    background: linear-gradient(135deg, #475569, #334155);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .form-container,
+  .d-flex.justify-content-end.mb-3,
+  .pagination {
+    display: none;
+  }
+  
+  .d-flex.flex-wrap {
+    display: block;
+  }
+}
+
+/* Accessibility */
+.form-select:focus-visible,
+.btn-outline-success:focus-visible,
+.btn-outline-primary:focus-visible,
+.page-link:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Success Toast Override */
+.toast-success {
+  background: linear-gradient(135deg, #10b981, #34d399) !important;
+  color: white !important;
+  border-radius: 15px !important;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Card Hover Enhancement */
+app-book-card:hover {
+  transform: translateY(-5px) !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}

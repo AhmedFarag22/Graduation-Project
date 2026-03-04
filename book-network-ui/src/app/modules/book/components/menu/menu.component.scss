@@ -1,0 +1,445 @@
+/* ====================================
+   FOOD SOCIAL MEDIA - NAVIGATION MENU
+   ==================================== */
+
+/* Navbar Container */
+.navbar {
+  background: linear-gradient(135deg, #ffffff 0%, #fef7ed 100%) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #10b981, #f59e0b, #8b5cf6) 1;
+  padding: 0.8rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  border-image: linear-gradient(90deg, #34d399, #fbbf24, #a78bfa) 1;
+}
+
+/* Brand Logo */
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: transparent;
+  background: linear-gradient(135deg, #10b981, #f59e0b, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand::after {
+  content: '🍲';
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+  opacity: 0.8;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+/* Nav Items Container */
+.navbar-nav {
+  gap: 5px;
+  margin-left: 2rem;
+}
+
+/* Individual Nav Items */
+.nav-item {
+  position: relative;
+  margin: 0 3px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px !important;
+  border-radius: 15px;
+  color: #475569 !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.nav-link i {
+  font-size: 1.1rem;
+  color: #64748b;
+  transition: all 0.3s ease;
+  width: 22px;
+  text-align: center;
+}
+
+/* Hover Effects */
+.nav-link:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1));
+  color: #1e293b !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.nav-link:hover i {
+  color: #10b981;
+  transform: scale(1.1);
+}
+
+/* Active State */
+.nav-link.active {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  border: none;
+  animation: activePulse 2s infinite;
+}
+
+.nav-link.active i {
+  color: white;
+  animation: iconFloat 1.5s ease-in-out infinite;
+}
+
+@keyframes activePulse {
+  0%, 100% {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.1);
+  }
+}
+
+/* Underline Animation */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981, #f59e0b);
+  border-radius: 3px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+/* Right Side Actions */
+.navbar-collapse .d-flex {
+  gap: 20px;
+  align-items: center;
+}
+
+/* Notification Bell */
+.fa-bell {
+  color: #64748b;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  transition: all 0.3s ease;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-bell:hover {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+  transform: rotate(15deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Notification Badge */
+.badge {
+  font-size: 0.7rem;
+  padding: 5px 8px;
+  min-width: 20px;
+  height: 20px;
+  animation: badgePulse 1.5s infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 0 5px rgba(239, 68, 68, 0);
+  }
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  min-width: 320px;
+  border-top: 3px solid #10b981;
+  animation: dropdownSlide 0.3s ease;
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  color: #475569;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1));
+  color: #1e293b;
+  border-left-color: #10b981;
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  color: #10b981;
+  font-size: 1rem;
+}
+
+/* Welcome Message */
+.navbar-collapse span {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.navbar-collapse span:first-of-type {
+  opacity: 0.8;
+}
+
+.text-capitalize.fw-bold {
+  color: #1e293b;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #10b981, #f59e0b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 4px 12px;
+  border-radius: 10px;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+/* Logout Button */
+.btn-link {
+  color: #64748b;
+  padding: 10px 15px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border: 2px solid transparent;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-link:hover {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  transform: rotate(-15deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+  border-color: transparent;
+}
+
+.btn-link i {
+  font-size: 1.3rem;
+}
+
+/* Toggler Button */
+.navbar-toggler {
+  border: none;
+  padding: 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2310b981' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Search Form Styling */
+.d-flex[role="search"] {
+  gap: 15px;
+  position: relative;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .navbar-nav {
+    margin: 1rem 0;
+    gap: 10px;
+  }
+  
+  .nav-link {
+    padding: 15px !important;
+    border-radius: 12px;
+    margin: 5px 0;
+  }
+  
+  .navbar-collapse .d-flex {
+    flex-direction: column;
+    gap: 15px;
+    padding: 1rem 0;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 1rem;
+  }
+  
+  .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* Animation for Navbar Load */
+@keyframes navSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  animation: navSlideDown 0.6s ease forwards;
+}
+
+/* Glass Effect on Scroll */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Accessibility Improvements */
+.nav-link:focus,
+.btn-link:focus,
+.fa-bell:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .navbar {
+    display: none;
+  }
+}
+
+/* Loading Animation for Notifications */
+@keyframes notificationLoad {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dropdown-item {
+  animation: notificationLoad 0.3s ease forwards;
+}
+
+.dropdown-item:nth-child(1) { animation-delay: 0.1s; }
+.dropdown-item:nth-child(2) { animation-delay: 0.2s; }
+.dropdown-item:nth-child(3) { animation-delay: 0.3s; }
+.dropdown-item:nth-child(4) { animation-delay: 0.4s; }
+.dropdown-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Food-themed Decorative Elements */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  width: 5px;
+  height: 5px;
+  background: #f59e0b;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease;
+}
+
+.nav-item:hover::before {
+  opacity: 1;
+}
+
+/* Gradient Border Animation */
+@keyframes gradientBorder {
+  0% {
+    border-image-source: linear-gradient(90deg, #10b981, #f59e0b, #8b5cf6);
+  }
+  33% {
+    border-image-source: linear-gradient(90deg, #f59e0b, #8b5cf6, #10b981);
+  }
+  66% {
+    border-image-source: linear-gradient(90deg, #8b5cf6, #10b981, #f59e0b);
+  }
+  100% {
+    border-image-source: linear-gradient(90deg, #10b981, #f59e0b, #8b5cf6);
+  }
+}
+
+.navbar {
+  animation: gradientBorder 10s linear infinite;
+}

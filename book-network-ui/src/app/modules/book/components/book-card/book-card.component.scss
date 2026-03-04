@@ -1,0 +1,470 @@
+/* ====================================
+   FOOD SOCIAL MEDIA CARD - STYLING
+   ==================================== */
+
+/* Card Container with Beautiful Food-Themed Design */
+.card {
+  width: 20rem;
+  border: none !important;
+  border-radius: 20px !important;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  cursor: pointer;
+  margin: 15px;
+}
+
+/* Card Hover Effects */
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Border Effects Based on Food Type */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 2;
+  border-radius: 20px 20px 0 0;
+  opacity: 0.85;
+}
+
+.card[class*="border-success"]::before {
+  background: linear-gradient(90deg, #10b981, #34d399, #10b981);
+}
+
+.card[class*="border-warning"]::before {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+}
+
+.card:not([class*="border-success"]):not([class*="border-warning"])::before {
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa, #8b5cf6);
+}
+
+/* Card Image Styling */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0 !important;
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.08);
+}
+
+/* Image Overlay Gradient */
+.card-img-top::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  border-radius: 0 !important;
+}
+
+/* Card Body */
+.card-body {
+  padding: 1.5rem 1.5rem 1rem;
+  background: white;
+  overflow: visible;
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700 !important;
+  color: #1e293b;
+  margin-bottom: 0.75rem !important;
+  text-nowrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-title i {
+  color: #64748b;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Food Type Badge */
+.food-type-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 3;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.food-type-badge.edible {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.9));
+}
+
+.food-type-badge.sell {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.9), rgba(217, 119, 6, 0.9));
+}
+
+.food-type-badge.feed {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(124, 58, 237, 0.9));
+}
+
+/* Card Subtitles Grid */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 1rem 0;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  transform: translateX(2px);
+}
+
+.detail-item i {
+  color: #64748b;
+  font-size: 0.9rem;
+  background: white;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.detail-item span {
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Posted By */
+.posted-by {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+.posted-by i {
+  color: #d97706;
+  font-size: 0.9rem;
+}
+
+.posted-by span {
+  color: #92400e;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Separator */
+.card-separator {
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    #e2e8f0 20%, 
+    #e2e8f0 80%, 
+    transparent 100%
+  );
+  margin: 1.25rem 0;
+}
+
+/* Food Description */
+.synopsis-text {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border-left: 3px solid #10b981;
+  max-height: 80px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.synopsis-text::-webkit-scrollbar {
+  width: 4px;
+}
+
+.synopsis-text::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.synopsis-text::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* Card Footer */
+.card-footer {
+  padding: 1.25rem 1.5rem !important;
+  background: white;
+  border-top: 1px solid #f1f5f9 !important;
+  border-radius: 0 0 20px 20px !important;
+}
+
+/* Rating Section */
+.rating-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #fff7ed, #ffedd5);
+  border-radius: 12px;
+  border: 1px solid #fed7aa;
+}
+
+.rating-value {
+  font-size: 1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.action-btn:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+.action-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.action-btn:active {
+  transform: translateY(-1px);
+}
+
+.action-btn.edit {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.action-btn.share {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+}
+
+.action-btn.primary {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  width: auto;
+  padding: 0 16px;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.action-btn.primary i {
+  font-size: 1rem;
+}
+
+/* Floating Actions for Manage Mode */
+.action-buttons.manage-mode {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+/* Animation for Card Appearance */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card {
+  animation: cardAppear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Shimmer Effect on Hover */
+.card:hover .card-img-top {
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .card {
+    box-shadow: none;
+    border: 1px solid #e2e8f0 !important;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  .action-buttons {
+    display: none;
+  }
+}
+
+/* Accessibility Improvements */
+.card:focus-within {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.action-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    color: #e2e8f0;
+  }
+  
+  .card-body, .card-footer {
+    background: #1e293b;
+  }
+  
+  .detail-item {
+    background: linear-gradient(135deg, #334155, #475569);
+    color: #cbd5e1;
+  }
+  
+  .synopsis-text {
+    background: #334155;
+    color: #cbd5e1;
+  }
+  
+  .card-separator {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      #475569 20%, 
+      #475569 80%, 
+      transparent 100%
+    );
+  }
+}

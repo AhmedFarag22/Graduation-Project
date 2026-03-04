@@ -1,0 +1,379 @@
+/* ====================================
+   FOOD RATING COMPONENT - STYLING
+   ==================================== */
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #fff7ed, #ffedd5);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  backdrop-filter: blur(5px);
+}
+
+.rating:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* Glow effect for the container */
+.rating::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24, #f59e0b);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.rating:hover::before {
+  opacity: 0.3;
+  animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Star Styling */
+.fa-star, .fa-star-half-alt {
+  font-size: 1.4rem;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Full Star Styling */
+.fa-star.text-warning {
+  color: #f59e0b;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: starGlow 1.5s ease-in-out infinite;
+}
+
+.fa-star.text-warning:nth-child(1) { animation-delay: 0.1s; }
+.fa-star.text-warning:nth-child(2) { animation-delay: 0.2s; }
+.fa-star.text-warning:nth-child(3) { animation-delay: 0.3s; }
+.fa-star.text-warning:nth-child(4) { animation-delay: 0.4s; }
+.fa-star.text-warning:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes starGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.5));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
+    transform: scale(1.15);
+  }
+}
+
+/* Empty Star Styling */
+.fa-star:not(.text-warning) {
+  color: #e2e8f0;
+  position: relative;
+}
+
+.fa-star:not(.text-warning)::before {
+  content: '★';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f1f5f9, #cbd5e1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.7;
+}
+
+/* Half Star Styling */
+.fa-star-half-alt {
+  background: linear-gradient(90deg, #f59e0b 50%, #e2e8f0 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: halfStarGlow 2s infinite;
+}
+
+@keyframes halfStarGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));
+  }
+}
+
+/* Star Container Hover Effects */
+.fa-star:hover,
+.fa-star-half-alt:hover {
+  transform: scale(1.3) rotate(10deg);
+  transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Sparkle Effects */
+.fa-star.text-warning::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: radial-gradient(circle at center, transparent 30%, rgba(245, 158, 11, 0.1) 70%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Rating Value Tooltip */
+.rating::after {
+  content: attr(data-rating);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  z-index: 10;
+}
+
+.rating:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Food-themed Rating Variants */
+.rating.edible-rating {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+}
+
+.rating.edible-rating .fa-star.text-warning {
+  background: linear-gradient(135deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.rating.sell-rating {
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+}
+
+.rating.feed-rating {
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15);
+}
+
+.rating.feed-rating .fa-star.text-warning {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Interactive Rating */
+.rating.interactive {
+  cursor: pointer;
+}
+
+.rating.interactive .fa-star,
+.rating.interactive .fa-star-half-alt {
+  transition: all 0.2s ease;
+}
+
+.rating.interactive .fa-star:hover,
+.rating.interactive .fa-star-half-alt:hover {
+  transform: scale(1.4);
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+}
+
+/* Loading Animation */
+.rating.loading {
+  animation: ratingShimmer 1.5s infinite linear;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes ratingShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Compact Rating */
+.rating.compact {
+  padding: 4px 8px;
+  gap: 2px;
+}
+
+.rating.compact .fa-star,
+.rating.compact .fa-star-half-alt {
+  font-size: 1rem;
+}
+
+/* Large Rating */
+.rating.large {
+  padding: 12px 20px;
+  gap: 6px;
+}
+
+.rating.large .fa-star,
+.rating.large .fa-star-half-alt {
+  font-size: 1.8rem;
+}
+
+/* Animated Rating Change */
+@keyframes ratingBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+}
+
+.rating.changed {
+  animation: ratingBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Accessibility */
+.rating:focus-within {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.fa-star:focus,
+.fa-star-half-alt:focus {
+  outline: 2px solid #f59e0b;
+  border-radius: 50%;
+}
+
+/* Print Styles */
+@media print {
+  .rating {
+    box-shadow: none;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+  
+  .fa-star.text-warning {
+    -webkit-text-fill-color: #f59e0b !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .rating {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .fa-star:not(.text-warning) {
+    color: #475569;
+  }
+  
+  .fa-star:not(.text-warning)::before {
+    background: linear-gradient(135deg, #475569, #64748b);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  .rating.edible-rating {
+    background: linear-gradient(135deg, #064e3b, #065f46);
+  }
+  
+  .rating.sell-rating {
+    background: linear-gradient(135deg, #78350f, #92400e);
+  }
+  
+  .rating.feed-rating {
+    background: linear-gradient(135deg, #4c1d95, #5b21b6);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .rating {
+    padding: 6px 10px;
+  }
+  
+  .fa-star,
+  .fa-star-half-alt {
+    font-size: 1.2rem;
+  }
+  
+  .rating.large .fa-star,
+  .rating.large .fa-star-half-alt {
+    font-size: 1.5rem;
+  }
+}
+
+/* Star Rating Counter Animation */
+@keyframes starFill {
+  from {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+.fa-star.text-warning {
+  animation: starFill 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.fa-star.text-warning:nth-child(1) { animation-delay: 0.05s; }
+.fa-star.text-warning:nth-child(2) { animation-delay: 0.1s; }
+.fa-star.text-warning:nth-child(3) { animation-delay: 0.15s; }
+.fa-star.text-warning:nth-child(4) { animation-delay: 0.2s; }
+.fa-star.text-warning:nth-child(5) { animation-delay: 0.25s; }
