@@ -47,6 +47,14 @@ public interface BookRepository extends JpaRepository<Book, Integer>, JpaSpecifi
             String title
     );
 
+    @Query("""
+    SELECT f.book
+    FROM Feedback f
+    GROUP BY f.book
+    ORDER BY COUNT(f.id) DESC
+""")
+    Page<Book> findTopRatedBooks(Pageable pageable);
+
 
 }
 

@@ -333,6 +333,16 @@ public class BookService {
         );
     }
 
+    public List<BookResponse> findTop5MostRatedBooks() {
+
+        Pageable pageable = PageRequest.of(0, 5);
+
+        Page<Book> books = bookRepository.findTopRatedBooks(pageable);
+
+        return books.stream()
+                .map(bookMapper::toBookResponse)
+                .toList();
+    }
 
 
 }
